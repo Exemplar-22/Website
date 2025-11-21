@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIJK Enterprise - Drive with Confidence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5dc;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(255, 140, 0, 0.3);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ff8c00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 0.9em;
+            color: #f5f5dc;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f5f5dc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            color: #ff8c00;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23000" width="1200" height="600"/><circle cx="300" cy="300" r="150" fill="%23ff8c00" opacity="0.1"/><circle cx="900" cy="200" r="200" fill="%23ff8c00" opacity="0.08"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            color: #ff8c00;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero .tagline-hero {
+            font-size: 1.8em;
+            color: #f5f5dc;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #f5f5dc;
+        }
+
+        .cta-button {
+            background: #ff8c00;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #ff8c00;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #ccc;
+            margin-bottom: 50px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .value-card {
+            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+            border-left: 4px solid #ff8c00;
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateX(10px);
+        }
+
+        .value-card h3 {
+            color: #ff8c00;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .partners-section {
+            background: #000;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partner-card {
+            background: #1a1a1a;
+            border: 2px solid #ff8c00;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .partner-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+        }
+
+        .partner-card h3 {
+            color: #f5f5dc;
+            font-size: 1.4em;
+        }
+
+        .about-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 60px 20px;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .mission-vision-card {
+            background: #000;
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #ff8c00;
+        }
+
+        .mission-vision-card h3 {
+            color: #ff8c00;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .products-section {
+            background: #1a1a1a;
+            padding: 60px 20px;
+        }
+
+        .product-categories {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 4px solid #ff8c00;
+        }
+
+        .product-card h3 {
+            color: #ff8c00;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .product-card h4 {
+            color: #f5f5dc;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .product-name {
+            color: #f5f5dc;
+        }
+
+        .product-price {
+            color: #ff8c00;
+            font-weight: bold;
+        }
+
+        .services-card {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 4px solid #ff8c00;
+        }
+
+        .services-card h3 {
+            color: #ff8c00;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .service-item {
+            padding: 10px 0;
+            color: #f5f5dc;
+        }
+
+        .how-to-avail {
+            background: #000;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .avail-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #2d2d2d;
+            padding: 50px;
+            border-radius: 10px;
+            border: 2px solid #ff8c00;
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        .payment-method {
+            background: #1a1a1a;
+            padding: 20px 30px;
+            border-radius: 8px;
+            border: 1px solid #ff8c00;
+        }
+
+        .faq-section {
+            background: #1a1a1a;
+            padding: 60px 20px;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #2d2d2d;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff8c00;
+        }
+
+        .faq-question {
+            color: #ff8c00;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            color: #f5f5dc;
+            line-height: 1.8;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #000 100%);
+            padding: 60px 20px;
+        }
+
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #ff8c00;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item h4 {
+            color: #ff8c00;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #f5f5dc;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #ff8c00;
+        }
+
+        footer {
+            background: #000;
+            color: #f5f5dc;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 3px solid #ff8c00;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero .tagline-hero {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-section">
+                <div class="logo">HIJK ENTERPRISE</div>
+                <div class="tagline">Drive with Confidence</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>HIJK ENTERPRISE</h1>
+        <p class="tagline-hero">Drive with Confidence</p>
+        <p class="hero-description">Your trusted partner for premium tires, batteries, and lubricants in La Trinidad, Benguet. We deliver quality products and exceptional service to keep you moving safely on the road.</p>
+        <button class="cta-button" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">View Products</button>
+        <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Us</button>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Why Choose HIJK Enterprise?</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>🎯 Quality Assurance</h3>
+                <p>We offer only genuine products from trusted brands, ensuring safety and reliability for every journey.</p>
+            </div>
+            <div class="value-card">
+                <h3>💰 Affordable Pricing</h3>
+                <p>Competitive prices without compromising quality, making premium products accessible to everyone.</p>
+            </div>
+            <div class="value-card">
+                <h3>🔧 Expert Service</h3>
+                <p>Friendly and professional staff ready to assist with installation, maintenance, and expert advice.</p>
+            </div>
+            <div class="value-card">
+                <h3>📍 Convenient Location</h3>
+                <p>Easily accessible shop in Shilan, La Trinidad, serving the Benguet community with dedication.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <h2 class="section-title">Our Trusted Brands</h2>
+        <p class="section-subtitle">We partner with industry-leading manufacturers to bring you the best</p>
+        <div class="partners-grid">
+            <div class="partner-card">
+                <h3>BF GOODRICH</h3>
+            </div>
+            <div class="partner-card">
+                <h3>Bridgestone</h3>
+            </div>
+            <div class="partner-card">
+                <h3>Advance</h3>
+            </div>
+            <div class="partner-card">
+                <h3>Doublestar</h3>
+            </div>
+            <div class="partner-card">
+                <h3>JP</h3>
+            </div>
+            <div class="partner-card">
+                <h3>Nitto</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h2 class="section-title">About HIJK Enterprise</h2>
+        <div class="about-content">
+            <div class="mission-vision-card">
+                <h3>Our Vision</h3>
+                <p>HIJK Enterprise envisions itself to be the no.1 outlet and distributor of tires, batteries, & lubricants in the locality with a more convenient shop with good services and affordable price.</p>
+            </div>
+            <div class="mission-vision-card">
+                <h3>Our Mission</h3>
+                <p>To sell quality tires, batteries, & lubricants and to render friendly and quality services to our customers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <h2 class="section-title">Our Products & Services</h2>
+        <p class="section-subtitle">Complete automotive solutions for all your needs</p>
+        
+        <div class="product-categories">
+            <div class="product-card">
+                <h3>🚗 Tires</h3>
+                
+                <h4>For Trucks</h4>
+                <div class="product-item">
+                    <span class="product-name">Advance Mix 12 R20</span>
+                    <span class="product-price">₱16,000</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Vikrant Rib 11 R20</span>
+                    <span class="product-price">₱12,500</span>
+                </div>
+
+                <h4>For Elf/Light Trucks</h4>
+                <div class="product-item">
+                    <span class="product-name">MRF Lug 750 - 16</span>
+                    <span class="product-price">₱6,900</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Casumina Lug 750 - 15</span>
+                    <span class="product-price">₱6,500</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Recap/Retreaded</span>
+                    <span class="product-price">₱3,400</span>
+                </div>
+
+                <h4>For SUV</h4>
+                <div class="product-item">
+                    <span class="product-name">Nitto A/T 265/50 R20</span>
+                    <span class="product-price">₱14,500</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">BF Goodrich 265/50 R20</span>
+                    <span class="product-price">₱8,500</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Bridgestone A/T 265/60 R18</span>
+                    <span class="product-price">₱13,100</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Kumho A/T 265/60 R18</span>
+                    <span class="product-price">₱9,200</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Sunfull 185 R14</span>
+                    <span class="product-price">₱2,300</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <h3>🔋 Batteries</h3>
+                <div class="product-item">
+                    <span class="product-name">JP 2sm Low Maintenance</span>
+                    <span class="product-price">₱3,300</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">JP 2sm Maintenance Free</span>
+                    <span class="product-price">₱4,500</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Quantum 3sm Low Maintenance</span>
+                    <span class="product-price">₱3,900</span>
+                </div>
+
+                <h4 style="margin-top: 40px;">Services</h4>
+                <div class="product-item">
+                    <span class="product-name">Tire Vulcanizing (Hot & Cold Patch)</span>
+                    <span class="product-price">₱100-350</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Tire Retreading</span>
+                    <span class="product-price">Varies</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <h3>🛢️ Lubricants - Petron</h3>
+                <h4>Rev-X HD</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱195</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱740</span>
+                </div>
+
+                <h4>GEP 90</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱220</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱830</span>
+                </div>
+
+                <h4>GEP 140</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱220</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱850</span>
+                </div>
+
+                <h4>MO30</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱185</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱740</span>
+                </div>
+
+                <h4>ATF</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱230</span>
+                </div>
+
+                <h4>Sprint 4T</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱195</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <h3>🛢️ Lubricants - Castrol</h3>
+                <h4>GTX 20W-50</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱255</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱995</span>
+                </div>
+
+                <h4>CRB Turbomax 15W-40</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱290</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱1,080</span>
+                </div>
+
+                <h4>Magnatec 10W-30</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱520</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱1,850</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <h3>🛢️ Lubricants - Caltex</h3>
+                <h4>Delo Gold 15W-40</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱250</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">4 Liter</span>
+                    <span class="product-price">₱980</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">5 Liter</span>
+                    <span class="product-price">₱1,150</span>
+                </div>
+
+                <h4>Delo Sports Synthetic 10W-30</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱420</span>
+                </div>
+
+                <h4>Delo Sports Advanced 5W-40</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱740</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <h3>🛢️ Other Products</h3>
+                <h4>Prestone Brake Fluid</h4>
+                <div class="product-item">
+                    <span class="product-name">900 ml</span>
+                    <span class="product-price">₱300</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">500 ml</span>
+                    <span class="product-price">₱185</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">270 ml</span>
+                    <span class="product-price">₱135</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">150 ml</span>
+                    <span class="product-price">₱90</span>
+                </div>
+
+                <h4>Prestone Coolant Concentrate</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱390</span>
+                </div>
+
+                <h4>Prestone Coolant RTU</h4>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱270</span>
+                </div>
+
+                <h4>Wonderlube</h4>
+                <div class="product-item">
+                    <span class="product-name">250 ml</span>
+                    <span class="product-price">₱500</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Liter</span>
+                    <span class="product-price">₱1,700</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-to-avail" id="services">
+        <h2 class="section-title">How to Avail Our Products & Services</h2>
+        <div class="avail-content">
+            <p style="font-size: 1.3em; margin-bottom: 30px;">Visit our store in Shilan, La Trinidad, Benguet to browse our complete selection and receive expert assistance from our friendly staff.</p>
+            <h3 style="color: #ff8c00; margin-bottom: 20px;">Payment Options</h3>
+            <div class="payment-icons">
+                <div class="payment-method">💵 Cash</div>
+                <div class="payment-method">📱 E-Wallet</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">What types of tires do you sell?</div>
+                <div class="faq-answer">We offer a full range of tires including passenger car tires, SUV tires, truck tires, off-road tires, and commercial vehicle tires from trusted brands like BF Goodrich, Bridgestone, Nitto, and more.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How often should I change my engine oil?</div>
+                <div class="faq-answer">Oil change intervals vary by vehicle and oil type, typically every 5,000 to 10,000 km. We recommend checking your vehicle's manual or consulting with our staff for personalized advice.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you repair punctured tires?</div>
+                <div class="faq-answer">Yes, we repair punctures if the damage is within the tread area and meets safety standards. We offer both hot and cold patch vulcanizing services priced at ₱100-350.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📍 Address</h4>
+                    <p>Shilan, La Trinidad, Benguet<br>Philippines 2601</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Mobile Number</h4>
+                    <p><a href="tel:09474747550">0947 474
