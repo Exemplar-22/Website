@@ -13,18 +13,19 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a;
+            background-color: #0a0a0a;
             color: #f5f5dc;
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+            background: #000000;
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(255, 140, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid #1a1a1a;
         }
 
         nav {
@@ -38,19 +39,40 @@
 
         .logo-section {
             display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            background: #1a1a1a;
+            border: 2px solid #f5f5dc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff8c00;
+            font-size: 0.8em;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .logo-text {
+            display: flex;
             flex-direction: column;
         }
 
         .logo {
             font-size: 1.8em;
             font-weight: bold;
-            color: #ff8c00;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #f5f5dc;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .tagline {
             font-size: 0.9em;
-            color: #f5f5dc;
+            color: #ff8c00;
             font-style: italic;
         }
 
@@ -73,24 +95,24 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23000" width="1200" height="600"/><circle cx="300" cy="300" r="150" fill="%23ff8c00" opacity="0.1"/><circle cx="900" cy="200" r="200" fill="%23ff8c00" opacity="0.08"/></svg>');
+            background: #000000;
             background-size: cover;
             background-position: center;
             padding: 120px 20px 80px;
             text-align: center;
+            border-bottom: 2px solid #1a1a1a;
         }
 
         .hero h1 {
             font-size: 3.5em;
-            color: #ff8c00;
+            color: #f5f5dc;
             margin-bottom: 15px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
         }
 
         .hero .tagline-hero {
             font-size: 1.8em;
-            color: #f5f5dc;
+            color: #ff8c00;
             margin-bottom: 25px;
             font-weight: 300;
         }
@@ -103,21 +125,22 @@
         }
 
         .cta-button {
-            background: #ff8c00;
+            background: #f5f5dc;
             color: #000;
             padding: 15px 40px;
-            border: none;
+            border: 2px solid #ff8c00;
             border-radius: 5px;
             font-size: 1.1em;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
             margin: 0 10px;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+            background: #ff8c00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
         }
 
         .section {
@@ -129,14 +152,14 @@
         .section-title {
             text-align: center;
             font-size: 2.5em;
-            color: #ff8c00;
+            color: #f5f5dc;
             margin-bottom: 20px;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.1em;
-            color: #ccc;
+            color: #ff8c00;
             margin-bottom: 50px;
         }
 
@@ -148,19 +171,21 @@
         }
 
         .value-card {
-            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+            background: #000000;
             border-left: 4px solid #ff8c00;
             padding: 30px;
             border-radius: 8px;
             transition: transform 0.3s;
+            border: 1px solid #1a1a1a;
         }
 
         .value-card:hover {
             transform: translateX(10px);
+            border-left-color: #f5f5dc;
         }
 
         .value-card h3 {
-            color: #ff8c00;
+            color: #f5f5dc;
             margin-bottom: 15px;
             font-size: 1.3em;
         }
@@ -180,8 +205,8 @@
         }
 
         .partner-card {
-            background: #1a1a1a;
-            border: 2px solid #ff8c00;
+            background: #000000;
+            border: 2px solid #f5f5dc;
             padding: 30px;
             border-radius: 10px;
             transition: all 0.3s;
@@ -189,7 +214,8 @@
 
         .partner-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+            border-color: #ff8c00;
+            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.2);
         }
 
         .partner-card h3 {
@@ -198,8 +224,9 @@
         }
 
         .about-section {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            background: #000000;
             padding: 60px 20px;
+            border-top: 1px solid #1a1a1a;
         }
 
         .about-content {
@@ -211,20 +238,22 @@
         }
 
         .mission-vision-card {
-            background: #000;
+            background: #0a0a0a;
             padding: 40px;
             border-radius: 10px;
-            border: 2px solid #ff8c00;
+            border: 2px solid #f5f5dc;
         }
 
         .mission-vision-card h3 {
-            color: #ff8c00;
+            color: #f5f5dc;
             font-size: 2em;
             margin-bottom: 20px;
+            border-bottom: 2px solid #ff8c00;
+            padding-bottom: 10px;
         }
 
         .products-section {
-            background: #1a1a1a;
+            background: #0a0a0a;
             padding: 60px 20px;
         }
 
@@ -237,14 +266,31 @@
         }
 
         .product-card {
-            background: #2d2d2d;
+            background: #000000;
             padding: 30px;
             border-radius: 10px;
+            border: 2px solid #f5f5dc;
             border-top: 4px solid #ff8c00;
         }
 
-        .product-card h3 {
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: #1a1a1a;
+            border: 2px solid #f5f5dc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
             color: #ff8c00;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-card h3 {
+            color: #f5f5dc;
             font-size: 1.8em;
             margin-bottom: 20px;
         }
@@ -260,7 +306,7 @@
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         .product-name {
@@ -273,14 +319,15 @@
         }
 
         .services-card {
-            background: #2d2d2d;
+            background: #000000;
             padding: 30px;
             border-radius: 10px;
+            border: 2px solid #f5f5dc;
             border-top: 4px solid #ff8c00;
         }
 
         .services-card h3 {
-            color: #ff8c00;
+            color: #f5f5dc;
             font-size: 1.8em;
             margin-bottom: 20px;
         }
@@ -299,10 +346,10 @@
         .avail-content {
             max-width: 800px;
             margin: 0 auto;
-            background: #2d2d2d;
+            background: #000000;
             padding: 50px;
             border-radius: 10px;
-            border: 2px solid #ff8c00;
+            border: 2px solid #f5f5dc;
         }
 
         .payment-icons {
@@ -314,14 +361,14 @@
         }
 
         .payment-method {
-            background: #1a1a1a;
+            background: #0a0a0a;
             padding: 20px 30px;
             border-radius: 8px;
-            border: 1px solid #ff8c00;
+            border: 2px solid #f5f5dc;
         }
 
         .faq-section {
-            background: #1a1a1a;
+            background: #000000;
             padding: 60px 20px;
         }
 
@@ -331,15 +378,16 @@
         }
 
         .faq-item {
-            background: #2d2d2d;
+            background: #0a0a0a;
             padding: 25px;
             margin-bottom: 20px;
             border-radius: 8px;
+            border: 2px solid #f5f5dc;
             border-left: 4px solid #ff8c00;
         }
 
         .faq-question {
-            color: #ff8c00;
+            color: #f5f5dc;
             font-size: 1.3em;
             margin-bottom: 15px;
             font-weight: bold;
@@ -351,8 +399,9 @@
         }
 
         .contact-section {
-            background: linear-gradient(135deg, #2d2d2d 0%, #000 100%);
+            background: #000000;
             padding: 60px 20px;
+            border-top: 1px solid #1a1a1a;
         }
 
         .contact-content {
@@ -364,10 +413,10 @@
         }
 
         .contact-info {
-            background: #1a1a1a;
+            background: #0a0a0a;
             padding: 40px;
             border-radius: 10px;
-            border: 2px solid #ff8c00;
+            border: 2px solid #f5f5dc;
         }
 
         .contact-item {
@@ -375,9 +424,12 @@
         }
 
         .contact-item h4 {
-            color: #ff8c00;
+            color: #f5f5dc;
             margin-bottom: 10px;
             font-size: 1.2em;
+            border-bottom: 2px solid #ff8c00;
+            padding-bottom: 5px;
+            display: inline-block;
         }
 
         .contact-item p, .contact-item a {
@@ -394,7 +446,7 @@
             color: #f5f5dc;
             text-align: center;
             padding: 30px 20px;
-            border-top: 3px solid #ff8c00;
+            border-top: 2px solid #f5f5dc;
         }
 
         @media (max-width: 768px) {
@@ -422,8 +474,13 @@
     <header>
         <nav>
             <div class="logo-section">
-                <div class="logo">HIJK ENTERPRISE</div>
-                <div class="tagline">Drive with Confidence</div>
+                <div class="logo-image">
+                    [LOGO HERE]
+                </div>
+                <div class="logo-text">
+                    <div class="logo">HIJK ENTERPRISE</div>
+                    <div class="tagline">Your Premium Tire Destination</div>
+                </div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -438,7 +495,7 @@
 
     <section class="hero" id="home">
         <h1>HIJK ENTERPRISE</h1>
-        <p class="tagline-hero">Drive with Confidence</p>
+        <p class="tagline-hero">Your Premium Tire Destination</p>
         <p class="hero-description">Your trusted partner for premium tires, batteries, and lubricants in La Trinidad, Benguet. We deliver quality products and exceptional service to keep you moving safely on the road.</p>
         <button class="cta-button" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">View Products</button>
         <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Us</button>
@@ -511,6 +568,7 @@
         
         <div class="product-categories">
             <div class="product-card">
+                <div class="product-image">[Tire Image Here]</div>
                 <h3>🚗 Tires</h3>
                 
                 <h4>For Trucks</h4>
@@ -788,5 +846,4 @@
                 </div>
                 <div class="contact-item">
                     <h4>📱 Mobile Number</h4>
-
-                    <p><a href="tel:09474747550">0947 4747550
+                    <p><a href="tel:09474747550">0947 474
