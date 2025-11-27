@@ -167,13 +167,32 @@
             border-left: 4px solid #ff8c00;
             padding: 30px;
             border-radius: 8px;
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
             border: 1px solid #07070D;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 140, 0, 0.1);
+            transition: left 0.4s ease;
+            z-index: -1;
         }
 
         .value-card:hover {
-            transform: translateX(10px);
+            transform: translateX(10px) translateY(-5px);
             border-left-color: #f5f5dc;
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.2);
+        }
+
+        .value-card:hover::before {
+            left: 0;
         }
 
         .value-card h3 {
@@ -234,6 +253,37 @@
             padding: 40px;
             border-radius: 10px;
             border: 2px solid #f5f5dc;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-vision-card::before {
+            content: '';
+            position: absolute;
+            bottom: -100%;
+            right: -100%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            z-index: 0;
+        }
+
+        .mission-vision-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-vision-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.25);
+            border-color: #ff8c00;
+        }
+
+        .mission-vision-card:hover::before {
+            bottom: -50%;
+            right: -50%;
         }
 
         .mission-vision-card h3 {
@@ -263,6 +313,36 @@
             border-radius: 10px;
             border: 2px solid #f5f5dc;
             border-top: 4px solid #ff8c00;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, transparent 100%);
+            transition: top 0.5s ease;
+            z-index: 0;
+        }
+
+        .product-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
+            border-top-color: #F9FFEB;
+        }
+
+        .product-card:hover::before {
+            top: 0;
         }
 
         .product-image {
@@ -376,6 +456,31 @@
             border-radius: 8px;
             border: 2px solid #f5f5dc;
             border-left: 4px solid #ff8c00;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .faq-item::after {
+            content: '';
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ff8c00 0%, transparent 100%);
+            transition: bottom 0.4s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+            border-left-color: #F9FFEB;
+        }
+
+        .faq-item:hover::after {
+            bottom: 0;
         }
 
         .faq-question {
@@ -409,6 +514,37 @@
             padding: 40px;
             border-radius: 10px;
             border: 2px solid #f5f5dc;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            right: -100%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            z-index: 0;
+        }
+
+        .contact-info > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
+            border-color: #ff8c00;
+        }
+
+        .contact-info:hover::before {
+            top: -50%;
+            right: -50%;
         }
 
         .contact-item {
@@ -439,6 +575,196 @@
             text-align: center;
             padding: 30px 20px;
             border-top: 2px solid #f5f5dc;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Apply animations to elements */
+        header {
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero h1 {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .tagline-hero {
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-description {
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            animation: slideInUp 0.8s ease-out 0.8s both;
+        }
+
+        .section-title {
+            animation: slideInUp 0.8s ease-out both;
+        }
+
+        .value-card {
+            animation: scaleIn 0.6s ease-out both;
+        }
+
+        .value-card:nth-child(1) { animation-delay: 0.1s; }
+        .value-card:nth-child(2) { animation-delay: 0.2s; }
+        .value-card:nth-child(3) { animation-delay: 0.3s; }
+        .value-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .partner-card {
+            transition: all 0.3s;
+        }
+
+        .partner-card:hover {
+            transform: scale(1.05);
+            border-color: #ff8c00;
+            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.2);
+        }
+
+        .product-card {
+            animation: slideInUp 0.7s ease-out both;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .mission-vision-card {
+            animation: slideInUp 0.8s ease-out both;
+        }
+
+        .mission-vision-card:nth-child(1) { animation-delay: 0.2s; }
+        .mission-vision-card:nth-child(2) { animation-delay: 0.4s; }
+
+        .faq-item {
+            animation: slideInUp 0.7s ease-out both;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .contact-info {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        /* Enhanced hover animations */
+        .cta-button {
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            animation: bounce 0.6s ease-in-out infinite;
+        }
+
+        .nav-links a {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff8c00;
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -499,19 +825,19 @@
         <h2 class="section-title">Why Choose HIJK Enterprise?</h2>
         <div class="values-grid">
             <div class="value-card">
-                <h3>🎯 Quality Assurance</h3>
+                <h3> Quality Assurance</h3>
                 <p>We offer only genuine products from trusted brands, ensuring safety and reliability for every journey.</p>
             </div>
             <div class="value-card">
-                <h3>💰 Affordable Pricing</h3>
+                <h3> Affordable Pricing</h3>
                 <p>Competitive prices without compromising quality, making premium products accessible to everyone.</p>
             </div>
             <div class="value-card">
-                <h3>🔧 Expert Service</h3>
+                <h3> Expert Service</h3>
                 <p>Friendly and professional staff ready to assist with installation, maintenance, and expert advice.</p>
             </div>
             <div class="value-card">
-                <h3>📍 Convenient Location</h3>
+                <h3> Convenient Location</h3>
                 <p>Easily accessible shop in Shilan, La Trinidad, serving the Benguet community with dedication.</p>
             </div>
         </div>
@@ -851,6 +1177,5 @@
                 <div class="contact-item">
                     <h4> Mobile Number</h4>
                     <p><a href="tel:09474747550">09474747550
-
 
 
